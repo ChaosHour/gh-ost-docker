@@ -151,8 +151,8 @@ args:
     --max-lag-millis=1500 \
     --assume-master-host=192.168.50.75 \
     --host=192.168.50.75 \
-    --database=rl_enhanced_report \
-    --table=CampaignPerformanceByDeviceAndNetwork \
+    --database=widget_demo \
+    --table=WidgetEventLog \
     --verbose \
     --alter="ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL" \
     --cut-over=default \

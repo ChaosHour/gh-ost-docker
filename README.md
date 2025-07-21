@@ -23,8 +23,8 @@ docker run --rm \
     --max-lag-millis=1500 \
     --assume-master-host="192.168.50.75" \
     --host=192.168.50.75 \
-    --database="rl_enhanced_report" \
-    --table="CampaignPerformanceByDeviceAndNetwork" \
+    --database="widget_demo" \
+    --table="WidgetEventLog" \
     --verbose \
     --alter="ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL" \
     --cut-over=default \
@@ -61,8 +61,8 @@ docker run --rm \
     --max-lag-millis=1500 \
     --assume-master-host="192.168.50.75" \
     --host=192.168.50.75 \
-    --database="rl_enhanced_report" \
-    --table="CampaignPerformanceByDeviceAndNetwork" \
+    --database="widget_demo" \
+    --table="WidgetEventLog" \
     --verbose \
     --alter="ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL" \
     --cut-over=default \
@@ -90,7 +90,7 @@ Example Helm install with custom arguments:
 ```bash
 helm install gh-ost ./gh-ost --namespace gh-ost \
   --set command="['gh-ost']" \
-  --set args="['--conf=/root/.my.cnf','--max-load=Threads_running=50','--critical-load=Threads_running=1000','--chunk-size=1000','--dml-batch-size=20','--nice-ratio=1','--max-lag-millis=1500','--assume-master-host=192.168.50.75','--host=192.168.50.75','--database=books','--table=action','--verbose','--alter=ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL','--cut-over=default','--exact-rowcount','--concurrent-rowcount','--default-retries=120','--assume-rbr','--allow-on-master','--panic-flag-file=/root/schema_tools/ghost.panic.flag','--postpone-cut-over-flag-file=/root/schema_tools/ghost.postpone.flag','--execute']"
+  --set args="['--conf=/root/.my.cnf','--max-load=Threads_running=50','--critical-load=Threads_running=1000','--chunk-size=1000','--dml-batch-size=20','--nice-ratio=1','--max-lag-millis=1500','--assume-master-host=192.168.50.75','--host=192.168.50.75','--database=widget_demo','--table=WidgetEventLog','--verbose','--alter=ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL','--cut-over=default','--exact-rowcount','--concurrent-rowcount','--default-retries=120','--assume-rbr','--allow-on-master','--panic-flag-file=/root/schema_tools/ghost.panic.flag','--postpone-cut-over-flag-file=/root/schema_tools/ghost.postpone.flag','--execute']"
 ```
 
 Or edit `values.yaml`:
@@ -108,8 +108,8 @@ args:
   - "--max-lag-millis=1500"
   - "--assume-master-host=192.168.50.75"
   - "--host=192.168.50.75"
-  - "--database=books"
-  - "--table=action"
+  - "--database=widget_demo"
+  - "--table=WidgetEventLog"
   - "--verbose"
   - "--alter=ADD COLUMN ad_distribution VARCHAR(50) COLLATE utf8_unicode_ci DEFAULT NULL, MODIFY COLUMN network VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL"
   - "--cut-over=default"

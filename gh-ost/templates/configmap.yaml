@@ -13,6 +13,6 @@ data:
     
     # Send unpostpone command to gh-ost socket
     echo "Sending unpostpone command to gh-ost..."
-    echo "unpostpone" | nc -U /tmp/gh-ost.rl_enhanced_report.CampaignPerformanceByDeviceAndNetwork.sock
+    echo "unpostpone" | nc -U /tmp/gh-ost.widget_demo.WidgetEventLog.sock
     
     echo "Cut-over initiated. Check logs for completion."
