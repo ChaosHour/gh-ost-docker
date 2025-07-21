@@ -1,4 +1,4 @@
-# Using Github's gh-ost for online schema changes in MySQL
+# Using Github's gh-ost for online schema changes in in k8s using Docker/Helm charts
 This repository contains a Dockerfile and Makefile to build and manage a Docker image for `gh-ost`, a tool for performing online schema changes in MySQL databases.
 
 ## Example Usage
