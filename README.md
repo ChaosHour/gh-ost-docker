@@ -6,7 +6,7 @@ This repository contains a Dockerfile and Makefile to build and manage a Docker 
 To run `gh-ost` with a custom MySQL configuration file, you can use the following command:
 
 ```bash
-Prod Example:
+Docker Example:
 
 docker run --rm \
   -v $(pwd)/my.cnf:/root/.my.cnf:ro \
