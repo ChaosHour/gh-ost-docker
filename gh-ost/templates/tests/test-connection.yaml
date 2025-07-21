@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "gh-ost.fullname" . }}-test-connection"
+  labels:
+    {{- include "gh-ost.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl
+      command: ['sh', '-c']
+      args:
+        - |
+          curl -sSf --max-time 30 http://{{ include "gh-ost.fullname" . }}:{{ .Values.service.port }} || exit 1
+  restartPolicy: Never

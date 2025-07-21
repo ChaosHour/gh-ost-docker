@@ -1,0 +1,14 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "gh-ost.fullname" . }}
+  labels:
+    {{- include "gh-ost.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessMode | default "ReadWriteOnce" }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | default "1Gi" }}
+{{- end }}

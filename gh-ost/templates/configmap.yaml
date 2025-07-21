@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gh-ost.fullname" . }}-scripts
+  labels:
+    {{- include "gh-ost.labels" . | nindent 4 }}
+data:
+  cutover.sh: |
+    #!/bin/sh
+    # This script removes the postpone flag file and triggers gh-ost cutover
+    echo "Removing postpone flag file to trigger cutover..."
+    rm -f /root/schema_tools/ghost.postpone.flag
+    
+    # Send unpostpone command to gh-ost socket
+    echo "Sending unpostpone command to gh-ost..."
+    echo "unpostpone" | nc -U /tmp/gh-ost.rl_enhanced_report.CampaignPerformanceByDeviceAndNetwork.sock
+    
+    echo "Cut-over initiated. Check logs for completion."
