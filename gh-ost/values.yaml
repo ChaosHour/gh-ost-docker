@@ -89,13 +89,17 @@ resources: {}
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
-  httpGet:
-    path: /
-    port: http
+  exec:
+    command:
+      - /bin/sh
+      - -c
+      - "pgrep gh-ost"
 readinessProbe:
-  httpGet:
-    path: /
-    port: http
+  exec:
+    command:
+      - /bin/sh
+      - -c
+      - "pgrep gh-ost"
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
